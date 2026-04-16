@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI + Human Executive Assistant Proposal — Ike Ikokwu</title>
+<style>
+:root {
+  --navy: #0E1532;
+  --deep-blue: #1e3a5f;
+  --off-white: #F7F7F9;
+  --white: #FFFFFF;
+  --lime: #B7EC60;
+  --coral: #E77B61;
+  --coral-dark: #d86b51;
+  --soft-gray: #969FA6;
+  --text: #2D3748;
+  --light-gray: #E9EDF2;
+  --shadow: 0 12px 34px rgba(14, 21, 50, 0.12);
+  --radius: 12px;
+  --max: 1140px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--off-white);
+}
+.container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+a { color: inherit; text-decoration: none; }
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy); color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 0;
+}
+.header-content { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.logo { display:inline-flex; align-items:center; text-decoration:none; }
+.logo img { display:block; height:44px; width:auto; max-width:min(320px,42vw); }
+.nav-cta {
+  display:inline-block; text-decoration:none; font-weight:700;
+  background: var(--coral); color: var(--white);
+  padding:12px 22px; border-radius:6px;
+  box-shadow: 0 4px 14px rgba(231,123,97,0.28);
+}
+section { padding: 78px 0; }
+.section-light { background: var(--white); }
+.section-off { background: var(--off-white); }
+.section-dark { background: linear-gradient(135deg, var(--navy) 0%, var(--deep-blue) 100%); color: var(--white); }
+.section-header { text-align:center; max-width: 820px; margin: 0 auto 44px; }
+.section-header h2 { font-size: clamp(2rem, 3vw, 2.4rem); line-height:1.2; color: var(--deep-blue); margin-bottom: 14px; }
+.section-dark .section-header h2 { color: var(--white); }
+.section-header p { color: var(--soft-gray); font-size:1.08rem; }
+.section-dark .section-header p { color: rgba(255,255,255,0.8); }
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height:1.1; font-weight:800; letter-spacing:-0.03em; color: var(--navy); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.2rem); line-height:1.2; margin-bottom: 24px; color: var(--deep-blue); }
+h3 { font-size: 1.35rem; line-height:1.3; margin-bottom: 14px; color: var(--deep-blue); }
+p { margin-bottom: 16px; }
+ul { margin-bottom: 20px; padding-left: 24px; }
+li { margin-bottom: 10px; }
+ol { margin-bottom: 20px; padding-left: 24px; }
+
+.card {
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.card-content { padding: 24px; }
+.card h3 { color: var(--deep-blue); margin-bottom: 12px; }
+.card p { margin-bottom: 14px; }
+
+.price-line {
+  font-size: clamp(2.2rem, 4vw, 3.1rem); line-height:1.08; font-weight:800;
+  color: var(--navy); margin-bottom: 12px; letter-spacing:-0.03em;
+}
+.bullet-list { list-style:none; margin: 20px 0 24px; }
+.bullet-list li { position:relative; padding-left:28px; margin-bottom:12px; }
+.bullet-list li::before { content:'✓'; position:absolute; left:0; color:#6f9d21; font-weight:800; }
+
+.btn {
+  display:inline-block; text-decoration:none; font-weight:800; border-radius:6px;
+  padding:16px 30px; transition:all .2s ease;
+}
+.btn-primary { background: var(--coral); color: var(--white); box-shadow: 0 4px 15px rgba(231,123,97,.3); }
+.btn-primary:hover { background: var(--coral-dark); transform: translateY(-2px); }
+
+.final-cta { text-align:center; }
+.final-cta h2 { color: var(--white); font-size: clamp(2.2rem, 4vw, 2.9rem); line-height:1.14; margin-bottom:16px; }
+.final-cta p { max-width:760px; margin:0 auto 28px; color: rgba(255,255,255,0.84); font-size:1.12rem; }
+
+footer { background:#101726; color: rgba(255,255,255,0.82); text-align:center; padding:42px 20px; font-size:.95rem; }
+.footer-nav { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+.footer-nav a { color: rgba(255,255,255,0.88); text-decoration:none; }
+.footer-nav a:hover { color: var(--lime); }
+
+.offer-box {
+  max-width: 920px; margin: 0 auto;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7f9 100%);
+  border-radius: 14px; padding: 38px; box-shadow: var(--shadow);
+  border: 1px solid rgba(14,21,50,0.08); position: relative; overflow: hidden;
+}
+.offer-box::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:6px;
+  background: linear-gradient(180deg, var(--coral) 0%, var(--lime) 100%);
+}
+
+@media (max-width: 768px) {
+  .header-content { grid-template-columns:1fr; display:grid; }
+  section { padding: 60px 0; }
+  .offer-box { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-content">
+    <a class="logo" href="https://ai.vastaffer.com/">
+      <img src="https://ai.vastaffer.com/assets/logos/va-staffer-logo-header.webp" alt="VA Staffer" onerror="this.src='assets/va-staffer-logo.webp'">
+    </a>
+    <a href="https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG" class="nav-cta">Get Started Now</a>
+  </div>
+</header>
+
+<section class="section-off">
+  <div class="container">
+    <div class="section-header" style="text-align:left; margin-bottom:48px;">
+      <p style="color:var(--coral-dark); font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px;">Proposal Prepared for</p>
+      <h1>AI + Human Executive Assistant<br>for Ike Ikokwu</h1>
+      <p style="font-size:1.1rem; color:var(--soft-gray); margin-top:14px;">
+        <strong>Prepared for:</strong> Ike Ikokwu &nbsp;|&nbsp;
+        <strong>Date:</strong> April 16, 2026 &nbsp;|&nbsp;
+        <strong>Valid through:</strong> April 30, 2026
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h2>Executive Summary</h2>
+        <p>You run a faith-based brand helping entrepreneurs and high achievers build "righteous wealth" aligned with biblical stewardship. You have multiple brand assets — book funnels, a podcast, coaching program, and a private investment fund — and you use Go High Level for CRM and email marketing with about 3,000 contacts in your database.</p>
+        <p>Right now you need structured support across LinkedIn outreach, database re-engagement, content repurposing, AI video production, bookkeeping, and funnel/webinar admin. You already have some VAs in place, but you're looking to either supplement or replace them with a more integrated, AI-enhanced support system.</p>
+        <p>VA Staffer's <strong>AI + Human Executive Assistant</strong> gives you a trained VA who uses AI tools to handle LinkedIn outreach, email marketing, CRM management, content repurposing, basic bookkeeping, and admin coordination — all aligned with your existing GHL workflows and SOPs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-header">
+      <h2>Scope of Work</h2>
+      <p>AI-trained virtual assistant — Part Time, Full Time, or Specialist Hours — aligned with your business needs.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <div class="card-content">
+        <h3>Core Responsibilities</h3>
+        <ul>
+          <li><strong>LinkedIn Outreach</strong> — using LinkedIn/Sales Navigator with AI-assisted DM writing (ChatGPT/Claude)</li>
+          <li><strong>Email & CRM Management</strong> — managing LinkedIn DMs and email replies; cleaning, tagging, and segmenting contacts in Go High Level</li>
+          <li><strong>Email Marketing</strong> — drafting and scheduling newsletters and re-engagement sequences in GHL</li>
+          <li><strong>Content Repurposing</strong> — converting existing content into newsletter format</li>
+          <li><strong>Basic Bookkeeping</strong> — inputting transactions into QuickBooks, reconciling bank/credit card statements, generating P&amp;L</li>
+          <li><strong>Admin Support for Webinars</strong> — taking notes, tracking action items during live sessions</li>
+          <li><strong>SOP Documentation</strong> — converting Loom/Zoom recordings into documented SOPs</li>
+          <li><strong>Task & Project Coordination</strong> — implementing client SOPs for outreach and funnel processes</li>
+          <li><strong>Research</strong> — target audience research and competitor analysis</li>
+          <li><strong>Data Entry</strong> — tracking outreach metrics and maintaining spreadsheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <div class="card-content">
+        <h3>AI-Enhanced Productivity</h3>
+        <ul>
+          <li>AI-assisted DM and email writing (ChatGPT/Claude)</li>
+          <li>AI content repurposing and summarization</li>
+          <li>AI copywriting for newsletters and outreach</li>
+          <li>AI operator support — running various AI tools for content creation</li>
+          <li>AI-assisted research and competitor analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Tools & Access</h3>
+        <ul>
+          <li><strong>Go High Level (GHL)</strong> — primary CRM and email marketing platform</li>
+          <li><strong>LinkedIn / Sales Navigator</strong> — for outreach and prospecting</li>
+          <li><strong>QuickBooks</strong> — for bookkeeping and accounting</li>
+          <li><strong>AI Tools Suite</strong> — 30+ AI solutions for content, copywriting, and research ($997/year value)</li>
+          <li><strong>Free AI Chatbot</strong> — fully managed by your VA for lead gen and FAQ handling ($3,588/year value)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-off">
+  <div class="container">
+    <div class="section-header">
+      <h2>Investment</h2>
+      <p>Three options to match your needs — Executive Assistant plans or Specialist Hours for project work.</p>
+    </div>
+
+    <div class="offer-box" style="margin-bottom:24px;">
+      <h3 style="margin-top:0;">Part Time AI Trained Virtual Assistant — $999/month</h3>
+      <p class="price-line">$999 <span style="font-size:1rem; font-weight:400; color:var(--soft-gray);">/month</span></p>
+      <p style="color:var(--soft-gray); margin-top:-8px;">+ $497 one-time setup fee</p>
+      <ul class="bullet-list">
+        <li>20 hours per week of dedicated VA support</li>
+        <li>All core responsibilities listed above</li>
+        <li>AI tools suite included ($997/year value)</li>
+        <li>Free AI chatbot subscription ($3,588/year value)</li>
+        <li>Fixed cost pricing — not hourly</li>
+        <li>Unused hours do not apply (fixed allocation)</li>
+      </ul>
+      <p style="color:var(--soft-gray); font-style:italic;">Best for: Ongoing executive and marketing support</p>
+    </div>
+
+    <div class="offer-box" style="border:2px solid var(--coral); margin-bottom:24px;">
+      <span style="background:var(--coral); color:var(--white); padding:6px 14px; border-radius:999px; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase;">⭐ RECOMMENDED</span>
+      <h3 style="margin-top:14px;">Full Time AI Trained Virtual Assistant — $1,899/month</h3>
+      <p class="price-line">$1,899 <span style="font-size:1rem; font-weight:400; color:var(--soft-gray);">/month</span></p>
+      <p style="color:var(--soft-gray); margin-top:-8px;">+ $497 one-time setup fee</p>
+      <ul class="bullet-list">
+        <li>40 hours per week of dedicated VA support</li>
+        <li>Everything in Part Time plan</li>
+        <li>Maximum coverage for busy operations</li>
+        <li>Priority onboarding and training schedule</li>
+      </ul>
+      <p style="color:var(--soft-gray); font-style:italic;">Best for: Businesses with heavy workload needing full-time dedicated support</p>
+    </div>
+
+    <div class="offer-box">
+      <h3 style="margin-top:0;">Specialist Hours — $400/month</h3>
+      <p class="price-line">$400 <span style="font-size:1rem; font-weight:400; color:var(--soft-gray);">/month</span></p>
+      <p style="color:var(--soft-gray); margin-top:-8px;">+ $497 one-time setup fee</p>
+      <p style="color:var(--soft-gray); margin-top:-4px;">20 consumable hours per month</p>
+      <ul class="bullet-list">
+        <li>Data Entry & Admin Tasks</li>
+        <li>Executive Assistant Tasks</li>
+        <li>Graphic Design</li>
+        <li>Video Editing</li>
+        <li>Audio Editing</li>
+        <li>Web Development</li>
+        <li>CRM & Automations Support</li>
+        <li>Integrations Support</li>
+        <li>AI Specialist Tasks</li>
+        <li>AI Copywriting</li>
+        <li>Hours roll over if unused</li>
+      </ul>
+      <p style="color:var(--soft-gray); font-style:italic;">Best for: High-volume AI video production (5+/week), advanced editing, funnel builds, CRM integrations, custom GPT setup</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p style="color:rgba(255,255,255,0.8);">From sign-up to working together in a few simple steps.</p>
+    </div>
+    <div style="max-width:860px; margin:0 auto;">
+      <ol style="color:rgba(255,255,255,0.92); font-size:1.05rem; line-height:1.8;">
+        <li><strong>Sign up</strong> → Choose Part Time, Full Time, or Specialist Hours and complete checkout</li>
+        <li><strong>Welcome email</strong> → You'll receive next steps within 24 hours</li>
+        <li><strong>Platform access</strong> → You're invited to the VA Staffer platform</li>
+        <li><strong>Submit requests</strong> → Create work requests with details, screenshots, Loom videos</li>
+        <li><strong>Work happens</strong> → VA assigned, work tracked transparently in-platform</li>
+        <li><strong>Review & revise</strong> → Deliverables shared, revisions requested until happy</li>
+      </ol>
+      <p style="text-align:center; margin-top:24px; color:rgba(255,255,255,0.75); font-size:.95rem;">
+        <a href="https://vastaffer.com/how-to-use-activecollab-with-virtual-team/" style="color:var(--lime);">How to Use the Platform →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-header">
+      <h2>About VA Staffer</h2>
+    </div>
+    <div style="max-width:820px; margin:0 auto;">
+      <p>VA Staffer provides specialized virtual assistant services across executive support, marketing, CRM, integrations, and creative tasks. Our platform gives you direct access to submit work requests, track hours, and communicate with your assigned specialist — all in one place.</p>
+      <p><strong>Portfolio:</strong> <a href="https://www.behance.net/vastaffer01" style="color:var(--coral-dark); font-weight:600;">behance.net/vastaffer01</a></p>
+      <p><strong>AI Employee Portfolio:</strong> <a href="https://ai.vastaffer.com/" style="color:var(--coral-dark); font-weight:600;">ai.vastaffer.com</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section-off">
+  <div class="container">
+    <div class="section-header">
+      <h2>Billing & Terms</h2>
+    </div>
+    <div style="max-width:760px; margin:0 auto; background:var(--white); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow);">
+      <ul class="bullet-list">
+        <li><strong>Billing:</strong> Automatic re-bill every 30 days</li>
+        <li><strong>Fixed cost pricing</strong> (Executive Assistant plans) — not hourly</li>
+        <li><strong>Consumable hours</strong> (Specialist Hours plan) — track usage, roll over unused</li>
+        <li><strong>Pause anytime</strong> — continue using remaining hours</li>
+        <li><strong>No minimum monthly contract</strong> — 30 days cancellation notice</li>
+        <li><strong>No Poaching Policy:</strong> <a href="https://vastaffer.com/terms-of-service" style="color:var(--coral-dark);">vastaffer.com/terms-of-service</a></li>
+        <li><strong>You own all content</strong> — we recommend saving copies to your own storage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Ready to Get Started?</h2>
+      <p>Choose your plan and begin receiving onboarding instructions within 24 hours.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG" class="btn btn-primary" style="padding:18px 30px; font-size:1rem;">
+          Part Time → $999/mo
+        </a>
+        <a href="https://app.paykickstart.com/checkout/2BKp7ladeP1E0zRB7xQzrmNgoYAQ6L9v" class="btn btn-primary" style="padding:18px 30px; font-size:1rem; background:var(--lime); color:var(--navy); box-shadow:0 4px 15px rgba(183,236,96,.4);">
+          Full Time → $1,899/mo
+        </a>
+        <a href="https://app.paykickstart.com/checkout/1VwJyEeNL92qKjv81aAWlRa380ZXvPo4" class="btn btn-primary" style="padding:18px 30px; font-size:1rem; background:var(--navy); color:var(--white); border:2px solid var(--lime);">
+          Specialist Hours → $400/mo
+        </a>
+      </div>
+      <p style="margin-top:16px; color:rgba(255,255,255,0.75); font-size:.95rem;">
+        You'll receive a platform invite within 24 hours. Once inside, you can immediately start submitting work requests.
+      </p>
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(255,255,255,0.08); border-radius:var(--radius); display:inline-block;">
+        <strong style="color:var(--lime);">This proposal is valid for 14 days</strong> — through April 30, 2026. Pricing and availability may change after this date.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-nav">
+      <a href="https://vastaffer.com/">Home</a>
+      <a href="https://vastaffer.com/terms-of-service">Terms</a>
+      <a href="https://vastaffer.com/privacy-policy">Privacy</a>
+      <a href="https://vastaffer.com/contact">Contact</a>
+    </div>
+    <p>© 2026 VA Staffer. All rights reserved.</p>
+    <p style="margin-top:8px; color:rgba(255,255,255,0.6); font-size:.85rem;">Built with AI • <a href="https://ai.vastaffer.com/" style="color:var(--lime);">ai.vastaffer.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
