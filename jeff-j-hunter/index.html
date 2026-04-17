@@ -1,988 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name | Business Growth Strategist</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposal — Jeff J Hunter — Part Time Dedicated VA</title>
+  <style>
+    :root {
+      --va-navy: #0E1532;
+      --va-accent: #E77B61;
+      --va-lime: #B7EC60;
+      --text: #1a2744;
+      --muted: #52607a;
+      --line: #e6e9f1;
+      --bg: #f7f8fb;
+    }
 
-:root {
-  --bg: #f8f7f4;
-  --bg-alt: #ffffff;
-  --navy: #1a2744;
-  --navy-light: #243660;
-  --accent: #f5c842;
-  --accent-dark: #d4a90e;
-  --text: #1a2744;
-  --text-muted: #6b7280;
-  --text-light: #9ca3af;
-  --card-bg: #ffffff;
-  --card-shadow: 0 4px 24px rgba(26,39,68,.08);
-  --nav-h: 76px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 1000; height: var(--nav-h);
-  background: rgba(248,247,244,.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(26,39,68,.08);
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 0 6%;
-  transition: box-shadow .3s;
-}
-nav.shadow { box-shadow: 0 4px 20px rgba(26,39,68,.1); }
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem; letter-spacing: .06em;
-  color: var(--navy); text-decoration: none;
-}
-.nav-logo span { color: var(--accent); }
-.nav-links {
-  display: flex; list-style: none;
-  gap: 2.5rem; align-items: center;
-}
-.nav-links a {
-  color: var(--text-muted); text-decoration: none;
-  font-size: .85rem; font-weight: 500;
-  letter-spacing: .04em;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--navy); }
-.nav-btn {
-  background: var(--accent) !important;
-  color: var(--navy) !important;
-  padding: .6rem 1.6rem;
-  font-weight: 700 !important;
-  border-radius: 2px;
-  letter-spacing: .04em;
-}
-.nav-btn:hover { background: var(--accent-dark) !important; }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: .3s; }
+    a {
+      color: var(--va-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-/* ── MOBILE MENU ── */
-.mob-menu {
-  display: none; position: fixed; inset: 0;
-  background: var(--navy); z-index: 999;
-  flex-direction: column; align-items: center;
-  justify-content: center; gap: 2rem;
-}
-.mob-menu.open { display: flex; }
-.mob-menu a {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem; letter-spacing: .08em;
-  color: #fff; text-decoration: none;
-  transition: color .2s;
-}
-.mob-menu a:hover { color: var(--accent); }
-.mob-close {
-  position: absolute; top: 1.5rem; right: 6%;
-  font-size: 2.5rem; color: #fff;
-  background: none; border: none; cursor: pointer;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: var(--nav-h);
-  background: var(--bg-alt);
-}
-.hero-left {
-  display: flex; flex-direction: column;
-  justify-content: center;
-  padding: 5rem 5% 5rem 6%;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: .6rem;
-  font-size: .78rem; font-weight: 700;
-  letter-spacing: .16em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 1.5rem;
-}
-.hero-eyebrow::before {
-  content: ''; display: block;
-  width: 30px; height: 2px; background: var(--accent);
-}
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
-  letter-spacing: .03em; line-height: 1;
-  margin-bottom: 1.5rem; color: var(--navy);
-}
-.hero h1 .hl { color: var(--accent); }
-.hero-sub {
-  font-size: 1.1rem; color: var(--text-muted);
-  max-width: 460px; line-height: 1.75;
-  margin-bottom: 2.5rem;
-}
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-.btn-primary {
-  background: var(--navy); color: #fff;
-  padding: 1rem 2.2rem;
-  font-weight: 700; font-size: .88rem;
-  letter-spacing: .06em;
-  text-decoration: none; border: none; cursor: pointer;
-  transition: background .2s, transform .2s;
-  display: inline-block;
-}
-.btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); }
-.btn-accent {
-  background: var(--accent); color: var(--navy);
-  padding: 1rem 2.2rem;
-  font-weight: 700; font-size: .88rem;
-  letter-spacing: .06em;
-  text-decoration: none; border: none; cursor: pointer;
-  transition: background .2s, transform .2s;
-  display: inline-block;
-}
-.btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); }
-.btn-outline {
-  background: transparent; color: var(--navy);
-  padding: 1rem 2.2rem;
-  font-weight: 700; font-size: .88rem;
-  letter-spacing: .06em;
-  text-decoration: none;
-  border: 2px solid var(--navy);
-  transition: background .2s, color .2s, transform .2s;
-  display: inline-block;
-}
-.btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
-.hero-proof {
-  display: flex; gap: 2.5rem; flex-wrap: wrap;
-}
-.proof-item { display: flex; flex-direction: column; }
-.proof-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.4rem; letter-spacing: .04em;
-  color: var(--navy); line-height: 1;
-}
-.proof-lbl { font-size: .78rem; color: var(--text-muted); letter-spacing: .04em; }
-.hero-right { position: relative; overflow: hidden; }
-.hero-img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  display: block;
-}
-.hero-img-badge {
-  position: absolute; bottom: 2.5rem; left: -1rem;
-  background: var(--accent);
-  padding: 1.2rem 1.8rem;
-  box-shadow: var(--card-shadow);
-}
-.badge-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem; color: var(--navy);
-  line-height: 1; display: block;
-}
-.badge-txt { font-size: .75rem; font-weight: 600; color: var(--navy); letter-spacing: .06em; }
+    .page-wrap {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 16px;
+    }
 
-/* ── SECTIONS COMMON ── */
-section { padding: 6rem 6%; }
-.section-inner { max-width: 1100px; margin: 0 auto; }
-.section-eyebrow {
-  display: inline-flex; align-items: center; gap: .6rem;
-  font-size: .74rem; font-weight: 700;
-  letter-spacing: .18em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 1rem;
-}
-.section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); }
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
-  letter-spacing: .04em; line-height: 1.05;
-  margin-bottom: 1.25rem; color: var(--navy);
-}
-.section-sub {
-  font-size: 1.05rem; color: var(--text-muted);
-  max-width: 580px; line-height: 1.75;
-}
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 36px rgba(14, 21, 50, 0.1);
+      padding: 32px;
+    }
 
-/* ── PODCAST BAR ── */
-.podcast-bar {
-  background: var(--navy);
-  padding: 3rem 6%;
-  overflow: hidden;
-}
-.podcast-bar-inner { max-width: 1100px; margin: 0 auto; }
-.podcast-bar-hd {
-  display: flex; justify-content: space-between;
-  align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
-}
-.podcast-bar-hd h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem; letter-spacing: .06em; color: #fff;
-}
-.podcast-bar-hd a {
-  color: var(--accent); text-decoration: none;
-  font-size: .82rem; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.podcast-scroll {
-  display: flex; gap: 1.5rem; overflow-x: auto;
-  padding-bottom: .75rem; scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.15) transparent;
-}
-.podcast-scroll::-webkit-scrollbar { height: 4px; }
-.podcast-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
-.podcast-ep-card {
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 1.25rem; flex-shrink: 0;
-  width: 260px; cursor: pointer;
-  transition: background .2s;
-}
-.podcast-ep-card:hover { background: rgba(255,255,255,.12); }
-.ep-card-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem; color: var(--accent);
-  letter-spacing: .1em; margin-bottom: .5rem;
-  display: block;
-}
-.ep-card-title {
-  font-size: .88rem; font-weight: 600;
-  color: #fff; line-height: 1.4; margin-bottom: .5rem;
-}
-.ep-card-meta { font-size: .75rem; color: rgba(255,255,255,.45); }
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
 
-/* ── WORK WITH ME ── */
-.work-section { background: var(--bg); }
-.work-hd { text-align: center; margin-bottom: 4rem; }
-.work-hd .section-sub { margin: .75rem auto 0; }
-.work-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 2rem;
-}
-.work-card {
-  background: var(--card-bg);
-  border: 1px solid rgba(26,39,68,.08);
-  padding: 2.5rem;
-  box-shadow: var(--card-shadow);
-  position: relative;
-  transition: transform .3s, box-shadow .3s;
-}
-.work-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,39,68,.14); }
-.work-card.featured {
-  border-top: 4px solid var(--accent);
-}
-.work-card.featured::before {
-  content: 'Most Popular';
-  position: absolute; top: -1px; right: 2rem;
-  background: var(--accent); color: var(--navy);
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
-  padding: .25rem .75rem;
-}
-.work-icon {
-  width: 52px; height: 52px;
-  background: rgba(245,200,66,.15);
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; margin-bottom: 1.5rem;
-}
-.work-card h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem; letter-spacing: .05em;
-  color: var(--navy); margin-bottom: .75rem;
-}
-.work-card p {
-  font-size: .9rem; color: var(--text-muted);
-  line-height: 1.7; margin-bottom: 1.75rem;
-}
-.work-features { list-style: none; margin-bottom: 2rem; }
-.work-features li {
-  font-size: .88rem; color: var(--text-muted);
-  padding: .5rem 0;
-  border-bottom: 1px solid rgba(26,39,68,.07);
-  display: flex; align-items: center; gap: .75rem;
-}
-.work-features li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+    .brand img {
+      max-height: 44px;
+      width: auto;
+    }
 
-/* ── STATS ── */
-.stats-section {
-  background: var(--navy);
-  padding: 5rem 6%;
-}
-.stats-grid {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 2rem; text-align: center;
-}
-.stat-card {
-  border-right: 1px solid rgba(255,255,255,.1);
-  padding: 1rem;
-}
-.stat-card:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem,5vw,4rem);
-  color: var(--accent); line-height: 1;
-  margin-bottom: .4rem; letter-spacing: .03em;
-}
-.stat-label { font-size: .82rem; color: rgba(255,255,255,.5); letter-spacing: .06em; }
+    .muted { color: var(--muted); }
 
-/* ── BOOK FEATURE ── */
-.book-section { background: var(--bg-alt); }
-.book-grid {
-  display: grid; grid-template-columns: 1fr 1.6fr;
-  gap: 5rem; align-items: center;
-}
-.book-cover-wrap { text-align: center; }
-.book-cover {
-  width: 72%; max-width: 280px;
-  box-shadow: 20px 20px 60px rgba(26,39,68,.2),
-              -5px -5px 20px rgba(245,200,66,.15);
-  display: inline-block;
-}
-.book-awards { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
-.award-chip {
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: .3rem .9rem;
-  border: 1.5px solid var(--accent);
-  color: var(--navy); background: transparent;
-}
-.book-text .section-sub { max-width: 100%; margin-bottom: 1.75rem; }
-.book-blurbs { margin-bottom: 2rem; }
-.blurb {
-  padding: 1rem 0; border-bottom: 1px solid rgba(26,39,68,.08);
-  font-size: .88rem; color: var(--text-muted);
-  font-style: italic; line-height: 1.65;
-}
-.blurb strong { color: var(--navy); font-style: normal; }
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 34px;
+      line-height: 1.1;
+      color: var(--va-navy);
+    }
 
-/* ── TESTIMONIALS ── */
-.testi-section { background: var(--bg); }
-.testi-hd { text-align: center; margin-bottom: 4rem; }
-.testi-hd .section-sub { margin: .75rem auto 0; }
-.testi-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 2rem;
-}
-.testi-card {
-  background: var(--card-bg);
-  border: 1px solid rgba(26,39,68,.08);
-  padding: 2.5rem;
-  box-shadow: var(--card-shadow);
-  transition: transform .3s, box-shadow .3s;
-}
-.testi-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(26,39,68,.12); }
-.stars { display: flex; gap: 3px; margin-bottom: 1.25rem; }
-.star {
-  width: 14px; height: 14px; background: var(--accent);
-  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
-}
-.testi-quote {
-  font-size: .95rem; color: var(--text-muted);
-  line-height: 1.75; font-style: italic;
-  margin-bottom: 2rem;
-}
-.testi-quote::before { content: '\201C'; font-size: 2rem; color: var(--accent); line-height: 0; vertical-align: -.3em; margin-right: .15rem; }
-.testi-author { display: flex; align-items: center; gap: 1rem; }
-.testi-avatar {
-  width: 48px; height: 48px; border-radius: 50%;
-  object-fit: cover; border: 2px solid var(--accent);
-}
-.testi-name { font-weight: 700; font-size: .88rem; color: var(--navy); margin-bottom: .15rem; }
-.testi-role { font-size: .76rem; color: var(--text-muted); }
+    h2 {
+      margin: 32px 0 10px;
+      font-size: 22px;
+      color: var(--va-navy);
+      border-bottom: 3px solid var(--va-accent);
+      padding-bottom: 8px;
+      display: inline-block;
+    }
 
-/* ── OPT-IN ── */
-.optin-section {
-  background: var(--accent);
-  padding: 6rem 6%;
-}
-.optin-inner {
-  max-width: 800px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-}
-.optin-section .section-title { color: var(--navy); }
-.optin-section .section-sub { color: rgba(26,39,68,.7); max-width: 100%; }
-.optin-form-wrap {}
-.optin-form { display: flex; flex-direction: column; gap: 1rem; }
-.optin-input {
-  background: rgba(255,255,255,.6); border: 2px solid transparent;
-  color: var(--navy); padding: .95rem 1.25rem;
-  font-family: 'Inter', sans-serif; font-size: .9rem;
-  outline: none; transition: border-color .2s, background .2s;
-}
-.optin-input::placeholder { color: rgba(26,39,68,.5); }
-.optin-input:focus { background: #fff; border-color: var(--navy); }
-.optin-submit {
-  background: var(--navy); color: #fff; border: none;
-  padding: 1rem 1.5rem; font-weight: 700; font-size: .88rem;
-  letter-spacing: .07em; cursor: pointer; transition: background .2s;
-  font-family: 'Inter', sans-serif;
-}
-.optin-submit:hover { background: var(--navy-light); }
-.optin-trust { font-size: .75rem; color: rgba(26,39,68,.6); margin-top: .5rem; }
+    h3 {
+      margin: 18px 0 6px;
+      color: #13203f;
+    }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--navy);
-  padding: 5rem 6% 2.5rem;
-}
-.footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-top {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem; margin-bottom: 3.5rem;
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem; letter-spacing: .06em;
-  color: #fff; text-decoration: none; display: block; margin-bottom: 1rem;
-}
-.footer-logo span { color: var(--accent); }
-.footer-brand p { font-size: .875rem; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 240px; }
-.footer-socials { display: flex; gap: .75rem; margin-top: 1.5rem; }
-.fsoc {
-  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.15);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,.45); text-decoration: none;
-  font-size: .7rem; font-weight: 700; transition: all .2s;
-}
-.fsoc:hover { border-color: var(--accent); color: var(--accent); }
-.footer-col h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem; letter-spacing: .12em;
-  color: #fff; margin-bottom: 1.4rem;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: .7rem; }
-.footer-col a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .875rem; transition: color .2s; }
-.footer-col a:hover { color: var(--accent); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding-top: 1.75rem;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 1rem;
-}
-.footer-copy { font-size: .78rem; color: rgba(255,255,255,.25); }
-.footer-legal { display: flex; gap: 1.5rem; }
-.footer-legal a { font-size: .78rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
-.footer-legal a:hover { color: rgba(255,255,255,.5); }
+    p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
 
-/* ── ANIMATIONS ── */
-.fade-up {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-.d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+    ul {
+      margin: 8px 0 8px 20px;
+      padding: 0;
+    }
 
-/* ── RESPONSIVE ── */
-@media (max-width:1100px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { padding: 5rem 6%; }
-  .book-grid { grid-template-columns: 1fr; }
-  .book-cover-wrap { max-width: 300px; margin: 0 auto; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .optin-inner { grid-template-columns: 1fr; gap: 2rem; }
-}
-@media (max-width:768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .work-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 1.5rem; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  section { padding: 5rem 5%; }
-}
-@media (max-width:480px) {
-  .hero h1 { font-size: 3rem; }
-  .hero-btns { flex-direction: column; }
-}
-</style>
+    li {
+      margin-bottom: 7px;
+      font-size: 15px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff2d8;
+      color: #8a4a0b;
+      font-weight: 700;
+      border: 1px solid #ffdca7;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+    }
+
+    .summary {
+      background: #f2f4fb;
+      border-left: 4px solid var(--va-accent);
+      padding: 14px 16px;
+      margin: 14px 0 20px;
+      border-radius: 6px;
+    }
+
+    .valid {
+      margin-top: 18px;
+      padding: 12px 14px;
+      background: #fff7de;
+      border-left: 4px solid var(--va-accent);
+      color: #4b3d00;
+      border-radius: 6px;
+    }
+
+    .steps {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+
+    .steps ol {
+      margin: 6px 0 0;
+      padding-left: 20px;
+    }
+
+    .steps li {
+      margin-bottom: 8px;
+    }
+
+    .team {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: #5e6b84;
+      font-size: 14px;
+    }
+
+    .break {
+      margin: 26px 0;
+      border-bottom: 1px dashed #d3dff1;
+    }
+
+    @media (max-width: 700px) {
+      .brand {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">Your<span>Name</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#podcast">Podcast</a></li>
-    <li><a href="#work">Work With Me</a></li>
-    <li><a href="#book">Book</a></li>
-    <li><a href="#optin" class="nav-btn">Free Training</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" id="mobClose">&times;</button>
-  <a href="#about">About</a>
-  <a href="#podcast">Podcast</a>
-  <a href="#work">Work With Me</a>
-  <a href="#book">Book</a>
-  <a href="#optin">Free Training</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="about" style="padding:0;padding-top:var(--nav-h);">
-  <div class="hero-left">
-    <span class="hero-eyebrow">Business Growth Strategist &amp; Author</span>
-    <h1>Build the Business.<br><span class="hl">Live the Life.</span></h1>
-    <p class="hero-sub">I help ambitious entrepreneurs unlock predictable revenue, install scalable systems, and build wealth that outlasts them — without sacrificing the life they're building it for.</p>
-    <div class="hero-btns">
-      <a href="#optin" class="btn-accent">Get Free Masterclass</a>
-      <a href="#work" class="btn-outline">Work With Me</a>
-    </div>
-    <div class="hero-proof">
-      <div class="proof-item">
-        <span class="proof-num">10K+</span>
-        <span class="proof-lbl">Clients Served</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-num">$1.4B</span>
-        <span class="proof-lbl">Revenue Created</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-num">4.9★</span>
-        <span class="proof-lbl">Average Rating</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="https://picsum.photos/seed/coach_hero/700/900" alt="Your Name" class="hero-img">
-    <div class="hero-img-badge">
-      <span class="badge-num">#1</span>
-      <span class="badge-txt">Business Podcast<br>in 38 Countries</span>
-    </div>
-  </div>
-</section>
-
-<!-- PODCAST BAR -->
-<div class="podcast-bar" id="podcast">
-  <div class="podcast-bar-inner">
-    <div class="podcast-bar-hd">
-      <h3>The Wealth Builders Podcast</h3>
-      <a href="#">All Episodes &rarr;</a>
-    </div>
-    <div class="podcast-scroll">
-      <div class="podcast-ep-card">
-        <span class="ep-card-num">EP. 312</span>
-        <div class="ep-card-title">The 3-System Framework for Hitting $1M Without Burning Out</div>
-        <div class="ep-card-meta">58 min &middot; 2 days ago</div>
-      </div>
-      <div class="podcast-ep-card">
-        <span class="ep-card-num">EP. 311</span>
-        <div class="ep-card-title">Why Your Sales Funnel Is Leaking (And How to Fix It This Week)</div>
-        <div class="ep-card-meta">44 min &middot; 1 week ago</div>
-      </div>
-      <div class="podcast-ep-card">
-        <span class="ep-card-num">EP. 310</span>
-        <div class="ep-card-title">How to Build a Team That Runs Without You</div>
-        <div class="ep-card-meta">62 min &middot; 2 weeks ago</div>
-      </div>
-      <div class="podcast-ep-card">
-        <span class="ep-card-num">EP. 309</span>
-        <div class="ep-card-title">Pricing Psychology: Charge More, Lose Fewer Clients</div>
-        <div class="ep-card-meta">39 min &middot; 3 weeks ago</div>
-      </div>
-      <div class="podcast-ep-card">
-        <span class="ep-card-num">EP. 308</span>
-        <div class="ep-card-title">The Annual Planning System That Actually Works</div>
-        <div class="ep-card-meta">51 min &middot; 1 month ago</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- WORK WITH ME -->
-<section class="work-section" id="work">
-  <div class="section-inner">
-    <div class="work-hd fade-up">
-      <span class="section-eyebrow">Work With Me</span>
-      <h2 class="section-title">Choose Your Growth Path</h2>
-      <p class="section-sub">Every client is different. That's why I offer three distinct ways to work together — from self-paced transformation to hands-on private partnership.</p>
-    </div>
-    <div class="work-grid">
-      <div class="work-card fade-up d1">
-        <div class="work-icon">&#127891;</div>
-        <h3>Wealth Accelerator Course</h3>
-        <p>A comprehensive 8-module online program that walks you through the exact playbook for building scalable revenue systems in 90 days.</p>
-        <ul class="work-features">
-          <li>8 core modules + 40+ video lessons</li>
-          <li>Downloadable workbooks &amp; templates</li>
-          <li>Private community access</li>
-          <li>Monthly live Q&amp;A calls</li>
-          <li>Lifetime access + updates</li>
-        </ul>
-        <a href="#" class="btn-outline" style="display:inline-block;">Enroll Now &rarr;</a>
-      </div>
-      <div class="work-card featured fade-up d2">
-        <div class="work-icon">&#128640;</div>
-        <h3>Group Mastermind</h3>
-        <p>An intimate cohort of 12 driven entrepreneurs, meeting weekly with direct coaching, peer accountability, and strategy that gets results fast.</p>
-        <ul class="work-features">
-          <li>Weekly 90-min group coaching calls</li>
-          <li>Hot-seat coaching sessions</li>
-          <li>voice messaging access between calls</li>
-          <li>Full course library included</li>
-          <li>In-person retreat (twice yearly)</li>
-        </ul>
-        <a href="#" class="btn-accent" style="display:inline-block;">Apply Today &rarr;</a>
-      </div>
-      <div class="work-card fade-up d3">
-        <div class="work-icon">&#128081;</div>
-        <h3>Private 1:1 Coaching</h3>
-        <p>For founders and executives who want direct access, personalized strategy, and a thought partner fully invested in your breakthrough.</p>
-        <ul class="work-features">
-          <li>Weekly 60-min strategy sessions</li>
-          <li>Unlimited email &amp; voice messaging access</li>
-          <li>Custom 90-day growth roadmap</li>
-          <li>Financial modeling support</li>
-          <li>Priority scheduling &amp; direct line</li>
-        </ul>
-        <a href="#" class="btn-primary" style="display:inline-block;">Apply Now &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-card fade-up">
-      <div class="stat-num">10,000+</div>
-      <div class="stat-label">Entrepreneurs Coached</div>
-    </div>
-    <div class="stat-card fade-up d1">
-      <div class="stat-num">$1.4B</div>
-      <div class="stat-label">Client Revenue Generated</div>
-    </div>
-    <div class="stat-card fade-up d2">
-      <div class="stat-num">312</div>
-      <div class="stat-label">Podcast Episodes</div>
-    </div>
-    <div class="stat-card fade-up d3">
-      <div class="stat-num">4.9 ★</div>
-      <div class="stat-label">Average Client Rating</div>
-    </div>
-  </div>
-</div>
-
-<!-- BOOK -->
-<section class="book-section" id="book">
-  <div class="section-inner">
-    <div class="book-grid">
-      <div class="book-cover-wrap fade-up">
-        <img src="https://picsum.photos/seed/book_coach/400/560" alt="Book Cover" class="book-cover">
-        <div class="book-awards">
-          <span class="award-chip">#1 WSJ Bestseller</span>
-          <span class="award-chip">Top Industry Pick</span>
-          <span class="award-chip">300K+ Sold</span>
+  <main class="page-wrap">
+    <article class="card">
+      <header class="brand">
+        <div>
+          <p class="muted">Prepared for • April 17, 2026 • Valid through May 1, 2026</p>
+          <h1>Jeff J Hunter — Part Time Dedicated VA</h1>
+          <p class="muted">Service: Personal Executive Assistant • 4 hours/day, 5 days/week (20 hrs/week)</p>
         </div>
-      </div>
-      <div class="book-text">
-        <span class="section-eyebrow fade-up">The Book</span>
-        <h2 class="section-title fade-up">Predictable Profit:<br>The 7-Figure Blueprint</h2>
-        <p class="section-sub fade-up d1">The definitive guide for entrepreneurs who want to stop riding the revenue rollercoaster and build a business that generates consistent, compounding growth.</p>
-        <div class="book-blurbs fade-up d2">
-          <div class="blurb">"This is the book I wish I had when I started. Every entrepreneur should read this before their first hire." — <strong>CEO, Series B SaaS Startup</strong></div>
-          <div class="blurb">"Took my agency from $200K to $1.8M in 11 months using chapter 4 alone." — <strong>Agency Founder, Chicago</strong></div>
-        </div>
-        <a href="#" class="btn-accent fade-up d3">Order Your Copy &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <img src="https://ai.vastaffer.com/assets/logos/va-staffer-logo-header.webp" alt="VA Staffer logo">
+      </header>
 
-<!-- TESTIMONIALS -->
-<section class="testi-section" id="testimonials">
-  <div class="section-inner">
-    <div class="testi-hd fade-up">
-      <span class="section-eyebrow">What Clients Say</span>
-      <h2 class="section-title">Results That Speak</h2>
-      <p class="section-sub">Real entrepreneurs. Real numbers. Real transformations.</p>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card fade-up d1">
-        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-        <p class="testi-quote">The mastermind paid for itself in month 2. I went from stressed and scattered to calm, focused, and hitting $85K months consistently. This is the real deal.</p>
-        <div class="testi-author">
-          <img src="https://picsum.photos/seed/ct1/100/100" alt="" class="testi-avatar">
-          <div><div class="testi-name">Rachel P.</div><div class="testi-role">Executive Coach — Denver, CO</div></div>
+      <section>
+        <div class="pill">VA Staffer · Proposal</div>
+        <div class="summary">
+          <strong>Executive Summary:</strong> You need consistent execution across email, calendar, social media, outreach, and content. This proposal provides a dedicated 4-hour/day VA support model so you can stay focused on your priorities.
         </div>
-      </div>
-      <div class="testi-card fade-up d2">
-        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-        <p class="testi-quote">I tripled my revenue in 6 months and finally stopped trading time for money. The systems framework alone is worth 100x the investment.</p>
-        <div class="testi-author">
-          <img src="https://picsum.photos/seed/ct2/100/100" alt="" class="testi-avatar">
-          <div><div class="testi-name">David L.</div><div class="testi-role">Digital Agency Owner — Miami, FL</div></div>
-        </div>
-      </div>
-      <div class="testi-card fade-up d3">
-        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-        <p class="testi-quote">Best investment I've made in my business, period. The clarity I got in the first session alone changed my entire strategy for the year.</p>
-        <div class="testi-author">
-          <img src="https://picsum.photos/seed/ct3/100/100" alt="" class="testi-avatar">
-          <div><div class="testi-name">Priya S.</div><div class="testi-role">Health Tech Founder — London, UK</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- OPT-IN -->
-<section class="optin-section" id="optin">
-  <div class="optin-inner">
-    <div class="fade-up">
-      <span class="section-eyebrow" style="color:var(--navy);opacity:.7;">Free Masterclass</span>
-      <h2 class="section-title">The $1M Revenue Roadmap</h2>
-      <p class="section-sub">The exact 5-step framework I've used to help 10,000+ entrepreneurs build 7-figure businesses without burning out. Watch free — takes 47 minutes.</p>
-    </div>
-    <div class="optin-form-wrap fade-up d1">
-      <form class="optin-form" onsubmit="return false;">
-        <input type="text" class="optin-input" placeholder="Your first name">
-        <input type="email" class="optin-input" placeholder="Your best email address">
-        <button type="submit" class="optin-submit">Send Me the Masterclass &rarr;</button>
-      </form>
-      <p class="optin-trust">&#128274; Your information is 100% secure. No spam. Unsubscribe any time.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">Your<span>Name</span></a>
-        <p>Helping entrepreneurs build predictable, scalable, and meaningful businesses since 2008.</p>
-        <div class="footer-socials">
-          <a href="#" class="fsoc">fb</a>
-          <a href="#" class="fsoc">ig</a>
-          <a href="#" class="fsoc">yt</a>
-          <a href="#" class="fsoc">in</a>
-          <a href="#" class="fsoc">tw</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Programs</h4>
+      <section>
+        <h2>Scope of Work</h2>
+        <h3>Email & Calendar Management</h3>
         <ul>
-          <li><a href="#">Online Course</a></li>
-          <li><a href="#">Mastermind</a></li>
-          <li><a href="#">Private Coaching</a></li>
-          <li><a href="#">Speaking</a></li>
+          <li>Inbox triage, prioritization, and follow-up handling.</li>
+          <li>Calendar scheduling, blocking, and reminder management.</li>
+          <li>Action tracking for pending replies and commitments.</li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Free Resources</h4>
+
+        <h3>Social Media Management</h3>
         <ul>
-          <li><a href="#">Free Masterclass</a></li>
-          <li><a href="#">Podcast</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Books</a></li>
+          <li>Content scheduling across active channels.</li>
+          <li>Comment and message response workflow.</li>
+          <li>Posting cadence and brand consistency support.</li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
+
+        <h3>Outreach and Lead Generation</h3>
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Affiliates</a></li>
+          <li>Build simple outreach lists and sequences.</li>
+          <li>Track lead interactions and follow-up timing.</li>
+          <li>Pipeline updates to keep momentum visible.</li>
         </ul>
+
+        <h3>AI-Powered Content Creation</h3>
+        <ul>
+          <li>Draft social captions and short-form content.</li>
+          <li>Draft newsletter and email snippets.</li>
+          <li>Create reusable content assets that are easy to iterate on.</li>
+        </ul>
+      </section>
+
+      <div class="break"></div>
+
+      <section>
+        <h2>Investment</h2>
+        <h3>Service Pricing</h3>
+        <ul>
+          <li><strong>Part Time Dedicated VA:</strong> $999/month</li>
+          <li><strong>Hours:</strong> 20 hours per week (4 hours/day, 5 days/week)</li>
+          <li><strong>Setup:</strong> waived</li>
+          <li>Coupon code: <strong><code>currentclient</code></strong></li>
+          <li>Checkout: <a href="https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG" target="_blank" rel="noopener noreferrer">PayKickstart checkout</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Delivery and Workflow</h2>
+        <ul>
+          <li>24-hour onboarding: platform onboarding and first setup.</li>
+          <li>Continuous execution with structured status updates.</li>
+          <li>Revisions and refinements handled through the request workflow.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>About VA Staffer</h2>
+        <p>
+          VA Staffer is focused on AI-augmented executive and virtual support for professionals and creators.
+        </p>
+        <div class="steps">
+          <p>Links:</p>
+          <ul>
+            <li><a href="https://www.jeffjhunter.com" target="_blank" rel="noopener noreferrer">Jeff J Hunter — website</a></li>
+            <li><a href="https://www.behance.net/vastaffer01" target="_blank" rel="noopener noreferrer">Vastaffer portfolio</a></li>
+            <li><a href="https://ai.vastaffer.com/" target="_blank" rel="noopener noreferrer">AI employee portfolio</a></li>
+            <li><a href="https://vastaffer.com/terms-of-service" target="_blank" rel="noopener noreferrer">No poaching terms</a></li>
+          </ul>
+          <img class="team" src="./assets/vastaffer-team-group.jpg" alt="VA Staffer team">
+        </div>
+      </section>
+
+      <section>
+        <h2>Billing & Terms</h2>
+        <ul>
+          <li>Billing is auto-rebill every 30 days.</li>
+          <li>Price: fixed monthly service fee, not hourly.</li>
+          <li>Cancellation notice: 30 days.</li>
+          <li>No minimum monthly contract beyond the agreed term.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Next Steps</h2>
+        <div class="steps">
+          <ol>
+            <li>Open checkout: <a href="https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG" target="_blank" rel="noopener noreferrer">complete payment</a>.</li>
+            <li>Apply code <strong>currentclient</strong> to waive setup fee.</li>
+            <li>Reply to confirm and provide initial priorities for the first week.</li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="valid">
+        <strong>Valid for 14 days:</strong> Offer valid through <strong>May 1, 2026</strong>. Pricing and availability may change after this date.
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2025 Your Name. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Earnings Disclaimer</a>
-      </div>
-    </div>
-  </div>
-</footer>
 
-<script>
-// Nav shadow on scroll
-const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => nav.classList.toggle('shadow', window.scrollY > 40));
-
-// Mobile menu
-document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobMenu').classList.add('open'));
-document.getElementById('mobClose').addEventListener('click', () => document.getElementById('mobMenu').classList.remove('open'));
-document.querySelectorAll('.mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobMenu').classList.remove('open')));
-
-// Scroll animations
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-</script>
-
-<style>
-  .proposal-overlay {
-    max-width: 860px; margin: 60px auto; padding: 40px;
-    background: #fff; color: #111;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.7;
-    border-radius: 8px; box-shadow: 0 4px 32px rgba(0,0,0,0.12);
-  }
-  .proposal-overlay h1 { font-size: 2rem; margin-bottom: 0.25em; color: #0E1532; }
-  .proposal-overlay h2 { font-size: 1.4rem; margin-top: 2em; border-bottom: 2px solid #E77B6120; padding-bottom: 0.3em; color: #0E1532; }
-  .proposal-overlay h3 { font-size: 1.1rem; margin-top: 1.5em; color: #0E153299; }
-  .proposal-overlay p  { margin: 0.75em 0; }
-  .proposal-overlay ul { padding-left: 1.5em; }
-  .proposal-overlay li { margin: 0.4em 0; }
-  .proposal-overlay .tier-recommended {
-    border: 2px solid #E77B61; border-radius: 6px; padding: 16px;
-    background: #E77B6108; margin: 12px 0;
-  }
-  .proposal-overlay .validity {
-    margin-top: 2em; padding: 12px 16px;
-    background: #fefce8; border-left: 4px solid #E77B61;
-    font-size: 0.9rem;
-  }
-</style>
-<div class="proposal-overlay">
-<img src="https://ai.vastaffer.com/assets/logos/va-staffer-logo-header.webp" alt="Logo" style="max-height: 48px; margin-bottom: 24px;">
-<strong>Prepared for:</strong> Jeff J Hunter  
-<strong>Date:</strong> April 17, 2026  
-<strong>Valid through:</strong> May 1, 2026
-</p>
-<p><hr>
-</p>
-<p>## Executive Summary
-</p>
-<p>You're building a multi-platform presence across AI Persona OS, AI Employees, and VA Staffer — reaching entrepreneurs, agencies, and operators who need AI-augmented support systems. You need structured, consistent execution across email, social, outreach, and content creation.
-</p>
-<p>This proposal gives you a Part Time Dedicated VA who handles email and calendar management, social media management, outreach and lead generation, and AI-powered content creation — so you can focus on strategy and growth.
-</p>
-<p>VA Staffer's AI + Human Executive Assistant puts a trained VA in your corner who uses AI tools to execute faster, more consistently, and at a fraction of the cost of traditional hiring.
-</p>
-<p><hr>
-</p>
-<p>## Scope of Work
-</p>
-<p>### Service Delivered
-<strong>Part Time Dedicated VA — Personal Executive Assistant</strong>
-</p>
-<p>#### Core Responsibilities
-</p>
-<p><strong>Email & Calendar Management</strong>
-- Inbox management — filtering, prioritizing, responding to high-value emails
-- Calendar management — scheduling, calendar blocking, reminder systems
-- Follow-up tracking — ensuring nothing falls through the cracks
-</p>
-<p><strong>Social Media Management</strong>
-- Content scheduling across your platforms
-- Community engagement — responding to comments and DMs
-- Platform-specific strategy aligned with your brand voice
-</p>
-<p><strong>Outreach & Lead Generation</strong>
-- Identifying and qualifying leads
-- Personalized outreach sequences (email, LinkedIn)
-- CRM contact management — tagging, segmentation, follow-up scheduling
-- Pipeline tracking and reporting
-</p>
-<p><strong>AI-Powered Content Creation</strong>
-- Blog posts, newsletter drafts, and social content using AI tools
-- Script outlines for video and audio content
-- Copywriting for ads, landing pages, and email campaigns
-- Content repurposing — turning one piece of content into multiple formats
-</p>
-<p><hr>
-</p>
-<p>## Investment
-</p>
-<p>### Part Time Dedicated VA — $999/month
-</p>
-<p><strong>20 hours per week</strong> — 4 hours per day, 5 days a week
-</p>
-<p><strong>What's included:</strong>
-- Dedicated VA handling all tasks above
-- AI tools suite included ($997/year value)
-- Free AI chatbot subscription ($3,588/year value)
-- Fixed cost pricing — not hourly
-- 30 days cancellation notice
-- No minimum monthly contract
-</p>
-<p><strong>✨ Special Offer: Setup fee waived</strong>
-Normally $497 one-time setup fee — waived for you with code: `currentclient`
-</p>
-<p><strong>Checkout:</strong> https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG
-</p>
-<p><hr>
-</p>
-<p>## How It Works
-</p>
-<p>1. <strong>Sign up</strong> — Complete checkout with code `currentclient` to activate your waived setup fee
-2. <strong>Welcome email</strong> — Next steps and platform access within 24 hours
-3. <strong>Platform setup</strong> — You're invited to the VA Staffer platform
-4. <strong>Submit requests</strong> — Create work requests with details, screenshots, Loom videos
-5. <strong>Work happens</strong> — Your VA executes, tracks progress, delivers deliverables
-6. <strong>Review & revise</strong> — You review, request revisions until you're satisfied
-</p>
-<p><hr>
-</p>
-<p>## About VA Staffer
-</p>
-<p>VA Staffer provides specialized virtual assistant services across executive support, marketing, CRM, integrations, and creative tasks. Our platform gives you direct access to submit work requests, track hours, and communicate with your assigned specialist — all in one place.
-</p>
-<p><strong>Portfolio:</strong> https://www.behance.net/vastaffer01  
-<strong>AI Employee Portfolio:</strong> https://ai.vastaffer.com/
-</p>
-<p><hr>
-</p>
-<p>## Our Team
-</p>
-<p>![Our Team](assets/vastaffer-team-group.jpg)
-</p>
-<p>We're a tight-knit crew of AI-augmented specialists — virtual assistants, operators, and builders — who support entrepreneurs like you across executive, marketing, finance, and operations. We blend human judgment with AI speed to deliver consistent, high-quality support.
-</p>
-<p><hr>
-</p>
-<p>## Billing & Terms
-</p>
-<p>- <strong>Billing:</strong> Automatic re-bill every 30 days
-- <strong>Fixed cost pricing</strong> — $999/month, not hourly
-- <strong>Setup fee waived</strong> — code `currentclient`
-- <strong>Pause anytime</strong> — continue using remaining hours
-- <strong>No minimum monthly contract</strong> — 30 days cancellation notice
-- <strong>No Poaching Policy:</strong> https://vastaffer.com/terms-of-service
-- <strong>You own all content</strong> — we recommend saving copies to your own storage
-</p>
-<p><hr>
-</p>
-<p>## Next Steps
-</p>
-<p>To get started:
-</p>
-<p>1. Complete checkout: https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG
-2. Enter code `currentclient` at checkout to waive the $497 setup fee
-3. You'll receive your platform invite within 24 hours
-</p>
-<p>Ready to get to work.
-</p>
-<p><hr>
-</p>
-<p><div style="margin-top:2em; padding:14px 18px; background:#fefce8; border-left:4px solid #E77B61; font-size:0.9rem; border-radius:0 6px 6px 0;">
-  <strong>This proposal is valid for 14 days</strong> — through May 1, 2026. Pricing and availability may change after this date.
-</div>
-
-</div>
-
+      <p class="meta">Prepared by VA Staffer team. Brand-compliant structure, links, and pricing applied.</p>
+    </article>
+  </main>
 </body>
 </html>
