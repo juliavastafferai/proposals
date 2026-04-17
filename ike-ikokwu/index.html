@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Business Growth Strategist</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #f8f7f4;
+  --bg-alt: #ffffff;
+  --navy: #1a2744;
+  --navy-light: #243660;
+  --accent: #f5c842;
+  --accent-dark: #d4a90e;
+  --text: #1a2744;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 24px rgba(26,39,68,.08);
+  --nav-h: 76px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000; height: var(--nav-h);
+  background: rgba(248,247,244,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26,39,68,.08);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  transition: box-shadow .3s;
+}
+nav.shadow { box-shadow: 0 4px 20px rgba(26,39,68,.1); }
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: .06em;
+  color: var(--navy); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex; list-style: none;
+  gap: 2.5rem; align-items: center;
+}
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: .85rem; font-weight: 500;
+  letter-spacing: .04em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-btn {
+  background: var(--accent) !important;
+  color: var(--navy) !important;
+  padding: .6rem 1.6rem;
+  font-weight: 700 !important;
+  border-radius: 2px;
+  letter-spacing: .04em;
+}
+.nav-btn:hover { background: var(--accent-dark) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: .3s; }
+
+/* ── MOBILE MENU ── */
+.mob-menu {
+  display: none; position: fixed; inset: 0;
+  background: var(--navy); z-index: 999;
+  flex-direction: column; align-items: center;
+  justify-content: center; gap: 2rem;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem; letter-spacing: .08em;
+  color: #fff; text-decoration: none;
+  transition: color .2s;
+}
+.mob-menu a:hover { color: var(--accent); }
+.mob-close {
+  position: absolute; top: 1.5rem; right: 6%;
+  font-size: 2.5rem; color: #fff;
+  background: none; border: none; cursor: pointer;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-h);
+  background: var(--bg-alt);
+}
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 5rem 5% 5rem 6%;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .78rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 30px; height: 2px; background: var(--accent);
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  letter-spacing: .03em; line-height: 1;
+  margin-bottom: 1.5rem; color: var(--navy);
+}
+.hero h1 .hl { color: var(--accent); }
+.hero-sub {
+  font-size: 1.1rem; color: var(--text-muted);
+  max-width: 460px; line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.btn-primary {
+  background: var(--navy); color: #fff;
+  padding: 1rem 2.2rem;
+  font-weight: 700; font-size: .88rem;
+  letter-spacing: .06em;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .2s, transform .2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); }
+.btn-accent {
+  background: var(--accent); color: var(--navy);
+  padding: 1rem 2.2rem;
+  font-weight: 700; font-size: .88rem;
+  letter-spacing: .06em;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .2s, transform .2s;
+  display: inline-block;
+}
+.btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--navy);
+  padding: 1rem 2.2rem;
+  font-weight: 700; font-size: .88rem;
+  letter-spacing: .06em;
+  text-decoration: none;
+  border: 2px solid var(--navy);
+  transition: background .2s, color .2s, transform .2s;
+  display: inline-block;
+}
+.btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+.hero-proof {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+}
+.proof-item { display: flex; flex-direction: column; }
+.proof-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem; letter-spacing: .04em;
+  color: var(--navy); line-height: 1;
+}
+.proof-lbl { font-size: .78rem; color: var(--text-muted); letter-spacing: .04em; }
+.hero-right { position: relative; overflow: hidden; }
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.hero-img-badge {
+  position: absolute; bottom: 2.5rem; left: -1rem;
+  background: var(--accent);
+  padding: 1.2rem 1.8rem;
+  box-shadow: var(--card-shadow);
+}
+.badge-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; color: var(--navy);
+  line-height: 1; display: block;
+}
+.badge-txt { font-size: .75rem; font-weight: 600; color: var(--navy); letter-spacing: .06em; }
+
+/* ── SECTIONS COMMON ── */
+section { padding: 6rem 6%; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .74rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 1rem;
+}
+.section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  letter-spacing: .04em; line-height: 1.05;
+  margin-bottom: 1.25rem; color: var(--navy);
+}
+.section-sub {
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 580px; line-height: 1.75;
+}
+
+/* ── PODCAST BAR ── */
+.podcast-bar {
+  background: var(--navy);
+  padding: 3rem 6%;
+  overflow: hidden;
+}
+.podcast-bar-inner { max-width: 1100px; margin: 0 auto; }
+.podcast-bar-hd {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+}
+.podcast-bar-hd h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem; letter-spacing: .06em; color: #fff;
+}
+.podcast-bar-hd a {
+  color: var(--accent); text-decoration: none;
+  font-size: .82rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.podcast-scroll {
+  display: flex; gap: 1.5rem; overflow-x: auto;
+  padding-bottom: .75rem; scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.15) transparent;
+}
+.podcast-scroll::-webkit-scrollbar { height: 4px; }
+.podcast-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
+.podcast-ep-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 1.25rem; flex-shrink: 0;
+  width: 260px; cursor: pointer;
+  transition: background .2s;
+}
+.podcast-ep-card:hover { background: rgba(255,255,255,.12); }
+.ep-card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: .5rem;
+  display: block;
+}
+.ep-card-title {
+  font-size: .88rem; font-weight: 600;
+  color: #fff; line-height: 1.4; margin-bottom: .5rem;
+}
+.ep-card-meta { font-size: .75rem; color: rgba(255,255,255,.45); }
+
+/* ── WORK WITH ME ── */
+.work-section { background: var(--bg); }
+.work-hd { text-align: center; margin-bottom: 4rem; }
+.work-hd .section-sub { margin: .75rem auto 0; }
+.work-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+.work-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(26,39,68,.08);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.work-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,39,68,.14); }
+.work-card.featured {
+  border-top: 4px solid var(--accent);
+}
+.work-card.featured::before {
+  content: 'Most Popular';
+  position: absolute; top: -1px; right: 2rem;
+  background: var(--accent); color: var(--navy);
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: .25rem .75rem;
+}
+.work-icon {
+  width: 52px; height: 52px;
+  background: rgba(245,200,66,.15);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 1.5rem;
+}
+.work-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem; letter-spacing: .05em;
+  color: var(--navy); margin-bottom: .75rem;
+}
+.work-card p {
+  font-size: .9rem; color: var(--text-muted);
+  line-height: 1.7; margin-bottom: 1.75rem;
+}
+.work-features { list-style: none; margin-bottom: 2rem; }
+.work-features li {
+  font-size: .88rem; color: var(--text-muted);
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(26,39,68,.07);
+  display: flex; align-items: center; gap: .75rem;
+}
+.work-features li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+/* ── STATS ── */
+.stats-section {
+  background: var(--navy);
+  padding: 5rem 6%;
+}
+.stats-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 2rem; text-align: center;
+}
+.stat-card {
+  border-right: 1px solid rgba(255,255,255,.1);
+  padding: 1rem;
+}
+.stat-card:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem,5vw,4rem);
+  color: var(--accent); line-height: 1;
+  margin-bottom: .4rem; letter-spacing: .03em;
+}
+.stat-label { font-size: .82rem; color: rgba(255,255,255,.5); letter-spacing: .06em; }
+
+/* ── BOOK FEATURE ── */
+.book-section { background: var(--bg-alt); }
+.book-grid {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 5rem; align-items: center;
+}
+.book-cover-wrap { text-align: center; }
+.book-cover {
+  width: 72%; max-width: 280px;
+  box-shadow: 20px 20px 60px rgba(26,39,68,.2),
+              -5px -5px 20px rgba(245,200,66,.15);
+  display: inline-block;
+}
+.book-awards { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+.award-chip {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .9rem;
+  border: 1.5px solid var(--accent);
+  color: var(--navy); background: transparent;
+}
+.book-text .section-sub { max-width: 100%; margin-bottom: 1.75rem; }
+.book-blurbs { margin-bottom: 2rem; }
+.blurb {
+  padding: 1rem 0; border-bottom: 1px solid rgba(26,39,68,.08);
+  font-size: .88rem; color: var(--text-muted);
+  font-style: italic; line-height: 1.65;
+}
+.blurb strong { color: var(--navy); font-style: normal; }
+
+/* ── TESTIMONIALS ── */
+.testi-section { background: var(--bg); }
+.testi-hd { text-align: center; margin-bottom: 4rem; }
+.testi-hd .section-sub { margin: .75rem auto 0; }
+.testi-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+.testi-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(26,39,68,.08);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(26,39,68,.12); }
+.stars { display: flex; gap: 3px; margin-bottom: 1.25rem; }
+.star {
+  width: 14px; height: 14px; background: var(--accent);
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.testi-quote {
+  font-size: .95rem; color: var(--text-muted);
+  line-height: 1.75; font-style: italic;
+  margin-bottom: 2rem;
+}
+.testi-quote::before { content: '\201C'; font-size: 2rem; color: var(--accent); line-height: 0; vertical-align: -.3em; margin-right: .15rem; }
+.testi-author { display: flex; align-items: center; gap: 1rem; }
+.testi-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--accent);
+}
+.testi-name { font-weight: 700; font-size: .88rem; color: var(--navy); margin-bottom: .15rem; }
+.testi-role { font-size: .76rem; color: var(--text-muted); }
+
+/* ── OPT-IN ── */
+.optin-section {
+  background: var(--accent);
+  padding: 6rem 6%;
+}
+.optin-inner {
+  max-width: 800px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.optin-section .section-title { color: var(--navy); }
+.optin-section .section-sub { color: rgba(26,39,68,.7); max-width: 100%; }
+.optin-form-wrap {}
+.optin-form { display: flex; flex-direction: column; gap: 1rem; }
+.optin-input {
+  background: rgba(255,255,255,.6); border: 2px solid transparent;
+  color: var(--navy); padding: .95rem 1.25rem;
+  font-family: 'Inter', sans-serif; font-size: .9rem;
+  outline: none; transition: border-color .2s, background .2s;
+}
+.optin-input::placeholder { color: rgba(26,39,68,.5); }
+.optin-input:focus { background: #fff; border-color: var(--navy); }
+.optin-submit {
+  background: var(--navy); color: #fff; border: none;
+  padding: 1rem 1.5rem; font-weight: 700; font-size: .88rem;
+  letter-spacing: .07em; cursor: pointer; transition: background .2s;
+  font-family: 'Inter', sans-serif;
+}
+.optin-submit:hover { background: var(--navy-light); }
+.optin-trust { font-size: .75rem; color: rgba(26,39,68,.6); margin-top: .5rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 5rem 6% 2.5rem;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3.5rem;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: .06em;
+  color: #fff; text-decoration: none; display: block; margin-bottom: 1rem;
+}
+.footer-logo span { color: var(--accent); }
+.footer-brand p { font-size: .875rem; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 240px; }
+.footer-socials { display: flex; gap: .75rem; margin-top: 1.5rem; }
+.fsoc {
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.45); text-decoration: none;
+  font-size: .7rem; font-weight: 700; transition: all .2s;
+}
+.fsoc:hover { border-color: var(--accent); color: var(--accent); }
+.footer-col h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; letter-spacing: .12em;
+  color: #fff; margin-bottom: 1.4rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: .7rem; }
+.footer-col a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .875rem; transition: color .2s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 1.75rem;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: .78rem; color: rgba(255,255,255,.25); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .78rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
+.footer-legal a:hover { color: rgba(255,255,255,.5); }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 5rem 6%; }
+  .book-grid { grid-template-columns: 1fr; }
+  .book-cover-wrap { max-width: 300px; margin: 0 auto; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .optin-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width:768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .work-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 1.5rem; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  section { padding: 5rem 5%; }
+}
+@media (max-width:480px) {
+  .hero h1 { font-size: 3rem; }
+  .hero-btns { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Your<span>Name</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#work">Work With Me</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#optin" class="nav-btn">Free Training</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">&times;</button>
+  <a href="#about">About</a>
+  <a href="#podcast">Podcast</a>
+  <a href="#work">Work With Me</a>
+  <a href="#book">Book</a>
+  <a href="#optin">Free Training</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="about" style="padding:0;padding-top:var(--nav-h);">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Business Growth Strategist &amp; Author</span>
+    <h1>Build the Business.<br><span class="hl">Live the Life.</span></h1>
+    <p class="hero-sub">I help ambitious entrepreneurs unlock predictable revenue, install scalable systems, and build wealth that outlasts them — without sacrificing the life they're building it for.</p>
+    <div class="hero-btns">
+      <a href="#optin" class="btn-accent">Get Free Masterclass</a>
+      <a href="#work" class="btn-outline">Work With Me</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-num">10K+</span>
+        <span class="proof-lbl">Clients Served</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">$1.4B</span>
+        <span class="proof-lbl">Revenue Created</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">4.9★</span>
+        <span class="proof-lbl">Average Rating</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://picsum.photos/seed/coach_hero/700/900" alt="Your Name" class="hero-img">
+    <div class="hero-img-badge">
+      <span class="badge-num">#1</span>
+      <span class="badge-txt">Business Podcast<br>in 38 Countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST BAR -->
+<div class="podcast-bar" id="podcast">
+  <div class="podcast-bar-inner">
+    <div class="podcast-bar-hd">
+      <h3>The Wealth Builders Podcast</h3>
+      <a href="#">All Episodes &rarr;</a>
+    </div>
+    <div class="podcast-scroll">
+      <div class="podcast-ep-card">
+        <span class="ep-card-num">EP. 312</span>
+        <div class="ep-card-title">The 3-System Framework for Hitting $1M Without Burning Out</div>
+        <div class="ep-card-meta">58 min &middot; 2 days ago</div>
+      </div>
+      <div class="podcast-ep-card">
+        <span class="ep-card-num">EP. 311</span>
+        <div class="ep-card-title">Why Your Sales Funnel Is Leaking (And How to Fix It This Week)</div>
+        <div class="ep-card-meta">44 min &middot; 1 week ago</div>
+      </div>
+      <div class="podcast-ep-card">
+        <span class="ep-card-num">EP. 310</span>
+        <div class="ep-card-title">How to Build a Team That Runs Without You</div>
+        <div class="ep-card-meta">62 min &middot; 2 weeks ago</div>
+      </div>
+      <div class="podcast-ep-card">
+        <span class="ep-card-num">EP. 309</span>
+        <div class="ep-card-title">Pricing Psychology: Charge More, Lose Fewer Clients</div>
+        <div class="ep-card-meta">39 min &middot; 3 weeks ago</div>
+      </div>
+      <div class="podcast-ep-card">
+        <span class="ep-card-num">EP. 308</span>
+        <div class="ep-card-title">The Annual Planning System That Actually Works</div>
+        <div class="ep-card-meta">51 min &middot; 1 month ago</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK WITH ME -->
+<section class="work-section" id="work">
+  <div class="section-inner">
+    <div class="work-hd fade-up">
+      <span class="section-eyebrow">Work With Me</span>
+      <h2 class="section-title">Choose Your Growth Path</h2>
+      <p class="section-sub">Every client is different. That's why I offer three distinct ways to work together — from self-paced transformation to hands-on private partnership.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card fade-up d1">
+        <div class="work-icon">&#127891;</div>
+        <h3>Wealth Accelerator Course</h3>
+        <p>A comprehensive 8-module online program that walks you through the exact playbook for building scalable revenue systems in 90 days.</p>
+        <ul class="work-features">
+          <li>8 core modules + 40+ video lessons</li>
+          <li>Downloadable workbooks &amp; templates</li>
+          <li>Private community access</li>
+          <li>Monthly live Q&amp;A calls</li>
+          <li>Lifetime access + updates</li>
+        </ul>
+        <a href="#" class="btn-outline" style="display:inline-block;">Enroll Now &rarr;</a>
+      </div>
+      <div class="work-card featured fade-up d2">
+        <div class="work-icon">&#128640;</div>
+        <h3>Group Mastermind</h3>
+        <p>An intimate cohort of 12 driven entrepreneurs, meeting weekly with direct coaching, peer accountability, and strategy that gets results fast.</p>
+        <ul class="work-features">
+          <li>Weekly 90-min group coaching calls</li>
+          <li>Hot-seat coaching sessions</li>
+          <li>voice messaging access between calls</li>
+          <li>Full course library included</li>
+          <li>In-person retreat (twice yearly)</li>
+        </ul>
+        <a href="#" class="btn-accent" style="display:inline-block;">Apply Today &rarr;</a>
+      </div>
+      <div class="work-card fade-up d3">
+        <div class="work-icon">&#128081;</div>
+        <h3>Private 1:1 Coaching</h3>
+        <p>For founders and executives who want direct access, personalized strategy, and a thought partner fully invested in your breakthrough.</p>
+        <ul class="work-features">
+          <li>Weekly 60-min strategy sessions</li>
+          <li>Unlimited email &amp; voice messaging access</li>
+          <li>Custom 90-day growth roadmap</li>
+          <li>Financial modeling support</li>
+          <li>Priority scheduling &amp; direct line</li>
+        </ul>
+        <a href="#" class="btn-primary" style="display:inline-block;">Apply Now &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card fade-up">
+      <div class="stat-num">10,000+</div>
+      <div class="stat-label">Entrepreneurs Coached</div>
+    </div>
+    <div class="stat-card fade-up d1">
+      <div class="stat-num">$1.4B</div>
+      <div class="stat-label">Client Revenue Generated</div>
+    </div>
+    <div class="stat-card fade-up d2">
+      <div class="stat-num">312</div>
+      <div class="stat-label">Podcast Episodes</div>
+    </div>
+    <div class="stat-card fade-up d3">
+      <div class="stat-num">4.9 ★</div>
+      <div class="stat-label">Average Client Rating</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="section-inner">
+    <div class="book-grid">
+      <div class="book-cover-wrap fade-up">
+        <img src="https://picsum.photos/seed/book_coach/400/560" alt="Book Cover" class="book-cover">
+        <div class="book-awards">
+          <span class="award-chip">#1 WSJ Bestseller</span>
+          <span class="award-chip">Top Industry Pick</span>
+          <span class="award-chip">300K+ Sold</span>
+        </div>
+      </div>
+      <div class="book-text">
+        <span class="section-eyebrow fade-up">The Book</span>
+        <h2 class="section-title fade-up">Predictable Profit:<br>The 7-Figure Blueprint</h2>
+        <p class="section-sub fade-up d1">The definitive guide for entrepreneurs who want to stop riding the revenue rollercoaster and build a business that generates consistent, compounding growth.</p>
+        <div class="book-blurbs fade-up d2">
+          <div class="blurb">"This is the book I wish I had when I started. Every entrepreneur should read this before their first hire." — <strong>CEO, Series B SaaS Startup</strong></div>
+          <div class="blurb">"Took my agency from $200K to $1.8M in 11 months using chapter 4 alone." — <strong>Agency Founder, Chicago</strong></div>
+        </div>
+        <a href="#" class="btn-accent fade-up d3">Order Your Copy &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimonials">
+  <div class="section-inner">
+    <div class="testi-hd fade-up">
+      <span class="section-eyebrow">What Clients Say</span>
+      <h2 class="section-title">Results That Speak</h2>
+      <p class="section-sub">Real entrepreneurs. Real numbers. Real transformations.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up d1">
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="testi-quote">The mastermind paid for itself in month 2. I went from stressed and scattered to calm, focused, and hitting $85K months consistently. This is the real deal.</p>
+        <div class="testi-author">
+          <img src="https://picsum.photos/seed/ct1/100/100" alt="" class="testi-avatar">
+          <div><div class="testi-name">Rachel P.</div><div class="testi-role">Executive Coach — Denver, CO</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up d2">
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="testi-quote">I tripled my revenue in 6 months and finally stopped trading time for money. The systems framework alone is worth 100x the investment.</p>
+        <div class="testi-author">
+          <img src="https://picsum.photos/seed/ct2/100/100" alt="" class="testi-avatar">
+          <div><div class="testi-name">David L.</div><div class="testi-role">Digital Agency Owner — Miami, FL</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up d3">
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="testi-quote">Best investment I've made in my business, period. The clarity I got in the first session alone changed my entire strategy for the year.</p>
+        <div class="testi-author">
+          <img src="https://picsum.photos/seed/ct3/100/100" alt="" class="testi-avatar">
+          <div><div class="testi-name">Priya S.</div><div class="testi-role">Health Tech Founder — London, UK</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPT-IN -->
+<section class="optin-section" id="optin">
+  <div class="optin-inner">
+    <div class="fade-up">
+      <span class="section-eyebrow" style="color:var(--navy);opacity:.7;">Free Masterclass</span>
+      <h2 class="section-title">The $1M Revenue Roadmap</h2>
+      <p class="section-sub">The exact 5-step framework I've used to help 10,000+ entrepreneurs build 7-figure businesses without burning out. Watch free — takes 47 minutes.</p>
+    </div>
+    <div class="optin-form-wrap fade-up d1">
+      <form class="optin-form" onsubmit="return false;">
+        <input type="text" class="optin-input" placeholder="Your first name">
+        <input type="email" class="optin-input" placeholder="Your best email address">
+        <button type="submit" class="optin-submit">Send Me the Masterclass &rarr;</button>
+      </form>
+      <p class="optin-trust">&#128274; Your information is 100% secure. No spam. Unsubscribe any time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">Your<span>Name</span></a>
+        <p>Helping entrepreneurs build predictable, scalable, and meaningful businesses since 2008.</p>
+        <div class="footer-socials">
+          <a href="#" class="fsoc">fb</a>
+          <a href="#" class="fsoc">ig</a>
+          <a href="#" class="fsoc">yt</a>
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">tw</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#">Online Course</a></li>
+          <li><a href="#">Mastermind</a></li>
+          <li><a href="#">Private Coaching</a></li>
+          <li><a href="#">Speaking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="#">Free Masterclass</a></li>
+          <li><a href="#">Podcast</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Books</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Your Name. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Earnings Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav shadow on scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('shadow', window.scrollY > 40));
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobMenu').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click', () => document.getElementById('mobMenu').classList.remove('open'));
+document.querySelectorAll('.mob-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobMenu').classList.remove('open')));
+
+// Scroll animations
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+<style>
+  .welcome-overlay {
+    max-width: 860px; margin: 60px auto; padding: 40px;
+    background: #fff; color: #111;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.7;
+    border-radius: 8px; box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  }
+  .welcome-overlay h1 { font-size: 2rem; margin-bottom: 0.25em; color: #0E1532; }
+  .welcome-overlay h2 { font-size: 1.4rem; margin-top: 2em; border-bottom: 2px solid #E77B6120; padding-bottom: 0.3em; color: #0E1532; }
+  .welcome-overlay h3 { font-size: 1.1rem; margin-top: 1.5em; color: #0E153299; }
+  .welcome-overlay p  { margin: 0.75em 0; }
+  .welcome-overlay ul { padding-left: 1.5em; }
+  .welcome-overlay li { margin: 0.4em 0; }
+  .welcome-overlay .checklist-item {
+    padding: 8px 12px; margin: 4px 0;
+    background: #E77B6108; border-left: 3px solid #E77B61;
+  }
+  .welcome-overlay details { margin: 12px 0; }
+  .welcome-overlay summary {
+    cursor: pointer; font-weight: 600; padding: 8px 0;
+    color: #0E1532;
+  }
+  .welcome-overlay table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  .welcome-overlay th, .welcome-overlay td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+  .welcome-overlay th { background: #0E153205; }
+</style>
+<div class="welcome-overlay">
+<img src="https://ai.vastaffer.com/assets/logos/va-staffer-logo-header.webp" alt="Logo" style="max-height: 48px; margin-bottom: 24px;">
+# Welcome to VA Staffer, Ike!
+
+We're excited to have you on board as a Part Time Dedicated VA client. Here's your complete onboarding overview.
+
+## Your Project
+
+**AI + Human Executive Assistant — Part Time Dedicated VA**
+
+Your dedicated VA will handle:
+
+• LinkedIn outreach — AI-assisted DM writing and connection requests for your righteous wealth audience
+• GHL CRM management — contact cleanup, tagging, and segmentation of your 3,000+ database
+• Content repurposing — converting your existing content into newsletter format
+• Basic bookkeeping — QuickBooks transaction entry and statement reconciliation
+• Admin coordination — implementing SOPs for your outreach and funnel processes
+• AI copywriting — drafting and polishing emails, newsletters, and outreach messages
+
+---
+
+## Your Team
+
+![Our Team](assets/vastaffer-team-group.jpg)
+
+We're a tight-knit crew of AI-augmented specialists — virtual assistants, operators, and builders — who support entrepreneurs like you across executive, marketing, finance, and operations. We blend human judgment with AI speed to deliver consistent, high-quality support.
+
+**Portfolio:** https://www.behance.net/vastaffer01  
+**AI Employee Portfolio:** https://ai.vastaffer.com/
+
+---
+
+## How We Work
+
+• **Platform-first** — All work requests go through our platform for tracking and transparency
+• **Async-friendly** — Your VA works asynchronously — you submit requests, we deliver
+• **Revisions built-in** — Not happy? Hit "Revise" and we'll make it right
+• **Fixed pricing** — No hourly surprises — what you quoted is what you pay
+
+---
+
+## Timeline at a Glance
+
+| Phase | Timeline | What Happens |
+|-------|------|------|
+| Setup | Days 1-3 | Platform access, brand voice sync, tool access |
+| Onboarding | Days 4-7 | VA reviews workflows, initial outreach begins |
+| Content Ops | Week 2 | Content pipeline live, AI copywriting active |
+| Full Ops | Week 3+ | All services running daily |
+
+---
+
+## Setup Checklist
+
+<div class="checklist-item">✅ Complete setup fee ($497)</div>
+<div class="checklist-item">✅ Watch for platform invite (within 24 hours)</div>
+<div class="checklist-item">✅ Create platform account and log in</div>
+<div class="checklist-item">✅ Share brand voice guidelines for faith-based content</div>
+<div class="checklist-item">✅ Grant access to Go High Level CRM</div>
+<div class="checklist-item">✅ Share LinkedIn login or outreach guidelines</div>
+<div class="checklist-item">✅ Provide QuickBooks access for bookkeeping</div>
+<div class="checklist-item">✅ Share any existing SOPs or workflows</div>
+
+---
+
+## FAQ
+
+<details>
+<summary>How do I submit work requests?</summary>
+Once you're on the platform, click "New Request" and fill in the details, attach screenshots or Loom videos if helpful. Your VA will see it immediately.
+</details>
+
+<details>
+<summary>What if I'm not happy with the work?</summary>
+Hit "Revise" on any deliverable — unlimited revisions until you're satisfied. No extra charge.
+</details>
+
+<details>
+<summary>How fast do you respond?</summary>
+Typically within 4 hours during business hours. Urgent requests get prioritized.
+</details>
+
+<details>
+<summary>Can I cancel anytime?</summary>
+Yes. 30 days cancellation notice. No minimum monthly contract.
+</details>
+
+<details>
+<summary>Who has access to my accounts?</summary>
+Your VA needs access to the tools you grant — GHL, QuickBooks, LinkedIn, etc. You control what we see.
+</details>
+
+<details>
+<summary>What's the difference between VA Staffer and a regular VA service?</summary>
+We blend human judgment with AI speed. Your VA uses AI tools (ChatGPT, Claude, AI Persona Team) to deliver faster, more consistent work.
+</details>
+
+---
+
+## What Happens Next
+
+1. Complete your setup fee — https://app.paykickstart.com/checkout/Kdr63g9LAlXEmz4E3peW5aOYeDbv18RG
+2. Watch your inbox for the platform invite
+3. Log in and submit your first work request
+4. Your VA gets to work!
+
+We're excited to help you scale your righteous wealth initiative!
+
+---
+
+## Contact
+
+**Primary:** Platform — for all work requests and updates  
+**Secondary:** Email — for billing or account questions  
+**Response time:** Typically within 4 hours during business hours
+
+---
+
+<p style="margin-top:2em; padding:14px 18px; background:#fefce8; border-left:4px solid #E77B61; font-size:0.9rem; border-radius:0 6px 6px 0;">
+  <strong>This onboarding package is ready to go</strong> — your Drive folder with all documents is live. Everything is organized and ready to share with your client.
+</p>
+
+</div>
+
+</body>
+</html>
